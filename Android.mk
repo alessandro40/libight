@@ -26,6 +26,7 @@ LOCAL_SRC_FILES := \
     src/common/utils.c \
     src/ext/strtonum.c \
     src/net/connection.cpp \
-    src/net/protocol.cpp
+    src/report/base.cpp \
+    src/report/file.cpp
 
 include $(BUILD_STATIC_LIBRARY)
