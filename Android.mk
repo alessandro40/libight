@@ -11,7 +11,8 @@ LOCAL_STATIC_LIBRARIES := event2
 LOCAL_C_INCLUDES := \
     $(LOCAL_PATH)/src \
     src/ext/libevent/include \
-    src/ext/libevent/android
+    src/ext/libevent/android \
+    $(LOCAL_PATH)/src/ext/yaml-cpp/include
 
 LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%)
 
