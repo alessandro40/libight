@@ -51,4 +51,4 @@
 	url = https://github.com/boostorg/utility
 [submodule "src/ext/yaml-cpp/src/yaml-cpp"]
 	path = src/ext/yaml-cpp
-	url = https://github.com/bassosimone/yaml-cpp.git
+	url = https://github.com/alessandro40/yaml-cpp.git
