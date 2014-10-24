@@ -9,7 +9,7 @@ include $(CLEAR_VARS)
 LOCAL_STATIC_LIBRARIES := event2
 
 LOCAL_C_INCLUDES := \
-    src \
+    $(LOCAL_PATH)/src \
     src/ext/libevent/include \
     src/ext/libevent/android
 
