@@ -12,7 +12,19 @@ LOCAL_C_INCLUDES := \
     $(LOCAL_PATH)/src \
     src/ext/libevent/include \
     src/ext/libevent/android \
-    $(LOCAL_PATH)/src/ext/yaml-cpp/include
+    $(LOCAL_PATH)/src/ext/yaml-cpp/include \
+    $(LOCAL_PATH)/src/ext/boost/smart_ptr/include \
+    $(LOCAL_PATH)/src/ext/boost/config/include \
+    $(LOCAL_PATH)/src/ext/boost/assert/include \
+    $(LOCAL_PATH)/src/ext/boost/core/include \
+    $(LOCAL_PATH)/src/ext/boost/throw_exception/include \
+    $(LOCAL_PATH)/src/ext/boost/iterator/include \
+    $(LOCAL_PATH)/src/ext/boost/mpl/include \
+    $(LOCAL_PATH)/src/ext/boost/preprocessor/include \
+    $(LOCAL_PATH)/src/ext/boost/type_traits/include \
+    $(LOCAL_PATH)/src/ext/boost/static_assert/include \
+    $(LOCAL_PATH)/src/ext/boost/detail/include \
+    $(LOCAL_PATH)/src/ext/boost/utility/include
 
 LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%)
 
