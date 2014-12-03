@@ -1,12 +1,14 @@
 TOP_LOCAL_PATH := $(call my-dir)
 
 include $(TOP_LOCAL_PATH)/src/ext/libevent/Android.mk
+include $(TOP_LOCAL_PATH)/src/ext/yaml-cpp/src/Android.mk
 
 LOCAL_PATH := $(TOP_LOCAL_PATH)
 
 include $(CLEAR_VARS)
 
-LOCAL_STATIC_LIBRARIES := event2
+LOCAL_STATIC_LIBRARIES := event2 \
+    yaml-cpp
 
 LOCAL_C_INCLUDES := \
     $(LOCAL_PATH)/src \
