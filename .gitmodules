@@ -72,3 +72,6 @@
 	path = src/ext/yaml-cpp
 	url = https://github.com/bassosimone/yaml-cpp.git
   ignore = dirty
+[submodule "src/ext/libutp"]
+	path = src/ext/libutp
+	url = https://github.com/alessandro40/libutp.git
