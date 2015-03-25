@@ -4,7 +4,8 @@ src_net_libnet_la_SOURCES = \
 	src/net/buffer.cpp \
 	src/net/connection.cpp \
 	src/net/socks5.cpp \
-	src/net/transport.cpp
+	src/net/transport.cpp \
+	src/net/utp_transport.cpp
 
 libight_la_LIBADD += src/net/libnet.la
 
@@ -14,4 +15,5 @@ netinclude_HEADERS = \
     include/ight/net/connection.hpp \
     include/ight/net/dumb.hpp \
     include/ight/net/socks5.hpp \
-    include/ight/net/transport.hpp
+    include/ight/net/transport.hpp \
+    include/ight/net/utp_transport.hpp

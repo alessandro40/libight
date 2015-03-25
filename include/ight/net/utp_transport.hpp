@@ -17,6 +17,7 @@
 
 #include <ight/common/constraints.hpp>
 #include <ight/common/pointer.hpp>
+#include <ight/common/utils.hpp>
 #include <ight/net/buffer.hpp>
 #include <ight/net/transport.hpp>
 
@@ -40,7 +41,7 @@ using namespace ight::net::transport;
 
 class Context : public NonCopyable, public NonMovable {
 
-    evutil_socket_t fd = -1;
+    evutil_socket_t fd = IGHT_SOCKET_INVALID;
     utp_context *utp_ctx = nullptr;
     event *ev_read = nullptr;
     event *ev_write = nullptr;
@@ -112,7 +113,7 @@ class Context : public NonCopyable, public NonMovable {
     }
 };
 
-class uConnection : public Transport {
+class UTPTransport : public Transport {
 
     utp_socket *socket = nullptr;
 
@@ -181,7 +182,7 @@ class uConnection : public Transport {
 
     virtual void send(Buffer&);
 
-    virtual void close() {}
+    virtual void close();
 
     virtual std::string socks5_address() {
         return ""; /* no proxy */
@@ -191,11 +192,15 @@ class uConnection : public Transport {
         return ""; /* no proxy */
     }
 
-    uConnection(std::string local_port, event_base *);
+    UTPTransport(std::string local_port, event_base *);
 
     void connect(std::string address, std::string port);
 
     void print_stats();
+
+    ~UTPTransport() {
+        cleanup();
+    }
 };
 
 }}} // namespaces
