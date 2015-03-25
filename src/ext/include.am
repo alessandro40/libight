@@ -5,6 +5,11 @@ if USE_BUILTIN_LIBEVENT
     SUBDIRS = src/ext/libevent
 endif
 
+if USE_BUILTIN_LIBUTP
+    DIST_SUBDIRS = src/ext/libutp
+    SUBDIRS = src/ext/libutp
+endif
+
 src_ext_libext_la_SOURCES = \
     src/ext/strtonum.c \
     src/ext/http-parser/http_parser.c

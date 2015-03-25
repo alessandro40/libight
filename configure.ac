@@ -68,6 +68,38 @@ AM_CONDITIONAL([USE_BUILTIN_LIBEVENT],
     [test "$ight_libevent_path"x = "builtin"x])
 
 
+ight_libutp_path=
+
+AC_ARG_WITH([libutp],
+            [AS_HELP_STRING([--with-libutp],
+             [BitTorrent library for uTP @<:@default=check@:>@])
+            ], [
+              ight_libutp_path=$withval
+              if test "$withval"x != "builtin"x; then
+                  CPPFLAGS="$CPPFLAGS -I$withval/include"
+                  LDFLAGS="$LDFLAGS -L$withval/lib"
+              fi
+            ], [])
+
+if test "$ight_libutp_path"x != "builtin"x; then
+    AC_CHECK_HEADERS(utp.h, [],
+      [ight_libutp_path=builtin])
+
+    AC_CHECK_LIB(utp, utp_init, [],
+      [ight_libutp_path=builtin])
+
+    if test "$ight_libutp_path"x = "builtin"x; then
+       AC_MSG_WARN([No libutp found: will use the builtin libutp])
+    fi
+fi
+
+if test "$ight_libutp_path"x = "builtin"x; then
+    CPPFLAGS="$CPPFLAGS -Isrc/ext"
+    LDFLAGS="$LDFLAGS -Lsrc/ext/libutp -lutp"
+fi
+
+AM_CONDITIONAL([USE_BUILTIN_LIBUTP],
+    [test "$ight_libutp_path"x = "builtin"x])
 
 # Step 1: process --with-libboost and set ight_boost_path accordingly
 ight_boost_path=

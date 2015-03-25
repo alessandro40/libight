@@ -11,6 +11,14 @@ test_echo_client_evbuf_LDFLAGS = -lyaml-cpp
 check_PROGRAMS += test/echo_client_evbuf
 
 #
+# This is not managed by Catch because it is just a temporary test
+# to check wheter utp_transport works.
+#
+test_utp_connection_SOURCES = test/utp_connection.cpp
+test_utp_connection_LDADD = libight.la
+check_PROGRAMS += test/utp_connection
+
+#
 # The following tests instead are managed by Catch
 #
 
